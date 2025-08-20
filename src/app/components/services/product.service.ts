@@ -16,30 +16,23 @@ export class ProductService {
     
     }
 
-  getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl).pipe(
-      map((products) =>
-        products.map((p) => ({
-          ...p,
-          image: `http://localhost:8000/products/${p.image}`,
-        }))
-      )
-    );
+  
+   getAll(): Observable<Product[]> {
+  return this.http.get<Product[]>(this.baseUrl);
+}
+
+getById(id: number): Observable<Product> {
+  return this.http.get<Product>(`${this.baseUrl}${id}`);
+}
+
+
+
+
+   //create a new product
+   create(productData: FormData): Observable<Product> {
+    return this.http.post<Product>(this.baseUrl, productData);
   }
 
-  // get a specific product by id
-  getById(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.baseUrl}${id}`).pipe(
-      map((p) => ({
-        ...p,
-        image: `http://localhost:8000/products/${p.image}`,
-      }))
-    );
-  }
-   //create a new product
-   create(data : Product): Observable<Product> {
-       return this.http.post<Product>(this.baseUrl, data)
-   }
 
    //update a product
 

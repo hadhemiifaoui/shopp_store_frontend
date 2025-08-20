@@ -1,0 +1,69 @@
+.hero {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-left {
+  flex: 1;
+  /*background-color: #eddddd;*/
+  background-color: #fdf2f8f3;
+  color: #111;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Diagonal cut on right */
+  clip-path: polygon(0 0, 90% 0, 60% 100%, 0% 100%);
+  z-index: 1;
+}
+
+.hero-right {
+  flex: 1;
+  background-image: url('../../../assets/images/scarf.jpg');
+  width: 100%;
+  margin-right: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+ /* clip-path: polygon(30% -1500% 0, 100% 0, 100% 100%, 60% 100%);*/
+  clip-path: polygon(30% 0, 90% 0, 60% 100%,10% 0% 100%);
+  margin-left: -50%;
+  overflow: hidden;
+}
+
+.hero-right img {
+  height: 100%;
+  max-height: 100vh;
+  object-fit: cover;
+  position: relative;
+  object-position: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem; 
+}
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+  .hero-left, .hero-right {
+    clip-path: none;
+    width: 100%;
+     margin-left: 0%;
+  }
+  .hero-left {
+    padding: 2rem;
+  }
+  .hero-right {
+    height: auto;
+    padding: 2rem 0;
+  }
+  .hero-right img {
+    width: 100%;
+  }
+}

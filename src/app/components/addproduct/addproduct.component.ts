@@ -1,21 +1,22 @@
 import { Component } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 import { Product } from '../types/product';
+
 @Component({
   selector: 'app-addproduct',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './addproduct.component.html',
-  styleUrl: './addproduct.component.css'
+  styleUrls: ['./addproduct.component.css'] // <-- fixed typo here: styleUrl -> styleUrls
 })
 export class AddproductComponent {
-   productForm: FormGroup;
+  productForm: FormGroup;
   products: Product[] = [];
   isLoading = false;
   errorMessage = '';
+  selectedFile: File | null = null; // <-- new property
 
   constructor(private fb: FormBuilder, private productService: ProductService) {
     this.productForm = this.fb.group({
@@ -23,7 +24,7 @@ export class AddproductComponent {
       desc: [''],
       price: [0, [Validators.required, Validators.min(0)]],
       categ: [''],
-      image: ['']
+      image: ['']  // this will be handled via selectedFile
     });
   }
 
@@ -44,21 +45,37 @@ export class AddproductComponent {
       }
     });
   }
-    
+
+  // 🔹 Add this method
+  onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
+    }
+  }
+
   onSubmit() {
     if (this.productForm.invalid) return;
 
-    this.productService.create(this.productForm.value).subscribe({
+    // Use FormData to send the image
+    const formData = new FormData();
+    formData.append('name', this.productForm.get('name')?.value);
+    formData.append('desc', this.productForm.get('desc')?.value);
+    formData.append('price', this.productForm.get('price')?.value);
+    formData.append('categ', this.productForm.get('categ')?.value);
+
+    if (this.selectedFile) {
+      formData.append('image', this.selectedFile);
+    }
+
+    this.productService.create(formData).subscribe({
       next: newProduct => {
         this.products.push(newProduct);
         this.productForm.reset({ name: '', desc: '', price: 0, categ: '', image: '' });
+        this.selectedFile = null;
       },
       error: err => {
         this.errorMessage = 'Failed to save product.';
       }
     });
   }
-
-
-
 }

@@ -1,23 +1,32 @@
-
-  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="mb-4 p-3 border rounded" style="margin-top: 5%; margin-left: 5%;">
-    <div class="row g-3">
-      <div class="col-md-4">
-        <input type="text" formControlName="name" class="form-control" placeholder="Name" required />
-      </div>
-      <div class="col-md-4">
-        <input type="text" formControlName="desc" class="form-control" placeholder="Description" />
-      </div>
-      <div class="col-md-2">
-        <input type="number" formControlName="price" class="form-control" placeholder="Price" required min="0" />
-      </div>
-      <div class="col-md-4">
-        <input type="text" formControlName="categ" class="form-control" placeholder="Category" />
-      </div>
-      <div class="col-md-4">
-        <input type="text" formControlName="image" class="form-control" placeholder="Image URL" />
-      </div>
-      <div class="col-md-2">
-        <button class="btn btn-success w-100" [disabled]="productForm.invalid">Ajouter</button>
-      </div>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="mb-4 p-3 border rounded" style="margin-top: 5%; margin-left: 5%;" enctype="multipart/form-data">
+  <div class="row g-3">
+    <div class="col-md-4">
+      <input type="text" formControlName="name" class="form-control" placeholder="Name" required />
     </div>
-  </form>
+    <div class="col-md-4">
+      <input type="text" formControlName="desc" class="form-control" placeholder="Description" />
+    </div>
+    <div class="col-md-2">
+      <input type="number" formControlName="price" class="form-control" placeholder="Price" required min="0" />
+    </div>
+    <div class="col-md-4">
+      <select formControlName="categ" class="form-control" required>
+        <option value="">Select Category</option>
+        <option value="shemise">Shemise</option>
+        <option value="trensh_coat">Trensh Coat</option>
+        <option value="pantalon">Pantalon</option>
+        <option value="robe">Robe</option>
+        <option value="moule">Moule</option>
+        <option value="sac">Sac</option>
+        <option value="heels">Heels</option>
+        <option value="accessories">Accessories</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <input type="file" (change)="onFileChange($event)" class="form-control" />
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-success w-100" [disabled]="productForm.invalid">Ajouter</button>
+    </div>
+  </div>
+</form>
