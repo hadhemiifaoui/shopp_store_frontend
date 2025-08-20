@@ -1,0 +1,28 @@
+
+
+
+.content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+app-home {
+    margin-top: 0;
+
+}
+
+@media (max-width : 768px) {
+    .content {
+        padding: 10;
+    }
+}
+.content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

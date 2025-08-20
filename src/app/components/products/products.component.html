@@ -1,0 +1,16 @@
+<div class="container my-4" >
+
+  <button class="btn btn-primary mb-4" [routerLink]="['/add']" style="margin-top: 10%;">
+    Add New Product
+  </button>
+
+  <div *ngIf="isLoading" class="alert alert-info">Loading products...</div>
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4">
+  
+    <div class="col" *ngFor="let product of products">
+      <app-productcard [product]="product" class="h-100"></app-productcard>
+    </div>
+  </div>
+</div>

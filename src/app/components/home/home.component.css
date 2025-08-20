@@ -1,0 +1,43 @@
+
+.fullscreen-bg {
+     
+    background-image: url('../../../assets/images/shoppp.avif');
+
+    background-repeat: no-repeat ;
+    background-position: center;
+    background-size: cover;
+    
+
+    background-attachment: fixed;
+    text-align: center;
+     user-select: none;
+
+    height: 100vh; /*it alwase fix the problem of # devices*/
+  position: relative;
+  width: 100%;
+
+}
+
+
+.fullscreen-bg h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; 
+  margin: 0;
+  padding: 0;
+}
+
+
+.fullscreen-bg p {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; 
+  margin: 0;
+  padding: 0;
+}
+
+/* padding-top: 100%; */
