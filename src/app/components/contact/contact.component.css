@@ -4,6 +4,7 @@
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
+    user-select: none;
 }
 
 .hero-left {
@@ -50,6 +51,7 @@
 .about {
   background:  #f2edf0;
     width: 100%;
+   
   min-height: 100vh;
    
    

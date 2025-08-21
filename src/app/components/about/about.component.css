@@ -4,6 +4,7 @@
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
+  user-select: none;
 }
 
 .hero-left {
@@ -16,6 +17,7 @@
   justify-content: center;
   clip-path: polygon(0 0, 90% 0, 60% 100%, 0% 100%);
   z-index: 1;
+    user-select: none;
 }
 
 .hero-right {
@@ -30,6 +32,7 @@
   clip-path: polygon(30% 0, 90% 0, 60% 100%,10% 0% 100%);
   margin-left: -50%;
   overflow: hidden;
+    user-select: none;
 }
 
 .hero-right img {
@@ -37,6 +40,7 @@
   max-height: 100vh;
   object-fit: cover;
   position: relative;
+    user-select: none;
   object-position: center;
 }
 
@@ -52,7 +56,7 @@
     width: 100%;
   min-height: 100vh;
    
-   
+     user-select: none;
   text-align: center;
 }
 

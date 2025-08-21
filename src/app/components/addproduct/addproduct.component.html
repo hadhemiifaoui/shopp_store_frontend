@@ -1,4 +1,8 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="mb-4 p-3 border rounded" style="margin-top: 5%; margin-left: 5%;" enctype="multipart/form-data">
+
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="mb-4 p-3 border rounded"
+ style="margin-top: 20%; padding: 4%; margin-left: 4%; margin-right: 4%; "
+ enctype="multipart/form-data">
   <div class="row g-3">
     <div class="col-md-4">
       <input type="text" formControlName="name" class="form-control" placeholder="Name" required />
@@ -25,7 +29,7 @@
     <div class="col-md-4">
       <input type="file" (change)="onFileChange($event)" class="form-control" />
     </div>
-    <div class="col-md-2">
+    <div class="row-md-2">
       <button class="btn btn-success w-100" [disabled]="productForm.invalid">Ajouter</button>
     </div>
   </div>
