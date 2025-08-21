@@ -8,14 +8,12 @@
 
 .hero-left {
   flex: 1;
-  /*background-color: #eddddd;*/
   background-color: #fdf2f8f3;
   color: #111;
   padding: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Diagonal cut on right */
   clip-path: polygon(0 0, 90% 0, 60% 100%, 0% 100%);
   z-index: 1;
 }
@@ -29,7 +27,6 @@
   align-items: center;
   justify-content: flex-end;
   position: relative;
- /* clip-path: polygon(30% -1500% 0, 100% 0, 100% 100%, 60% 100%);*/
   clip-path: polygon(30% 0, 90% 0, 60% 100%,10% 0% 100%);
   margin-left: -50%;
   overflow: hidden;
@@ -47,6 +44,41 @@
   display: flex;
   gap: 1rem; 
 }
+
+
+
+.about {
+  background:  #f2edf0;
+    width: 100%;
+  min-height: 100vh;
+   
+   
+  text-align: center;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px , 1fr));
+  padding: 4%;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*small screens */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
